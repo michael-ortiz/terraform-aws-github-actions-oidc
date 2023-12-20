@@ -41,4 +41,4 @@ module "github-actions-oidc" {
 | Name | Description |
 |------|-------------|
 | <a name="output_oidc_provider_arn"></a> [oidc\_provider\_arn](#output\_oidc\_provider\_arn) | OIDC provider ARN |
-| <a name="output_oidc_role"></a> [oidc\_role](#output\_oidc\_role) | GitHub Actions OIDC role ARN |
+| <a name="output_oidc_role"></a> [oidc\_role\_arn](#output\_oidc\_role) | GitHub Actions OIDC role ARN |
