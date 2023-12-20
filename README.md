@@ -10,7 +10,7 @@ module "github-actions-oidc" {
   create_oidc_provider = true
 
   repositories            = ["Organization/RepositoryName"]
-  oidc_role_policies_arns = [aws_iam_policy.oidc_policy.arn]
+  oidc_role_policies_arns = ["YOUR_POLICY_ARN"]
 }
 ```
 
