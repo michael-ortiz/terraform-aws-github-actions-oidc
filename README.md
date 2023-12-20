@@ -7,8 +7,6 @@ module "github-actions-oidc" {
   source  = "michael-ortiz/github-actions-oidc/aws"
   version = "~> 1.0"
 
-  create_oidc_provider = true
-
   repositories            = ["Organization/RepositoryName"]
   oidc_role_policies_arns = ["YOUR_POLICY_ARN"]
 }
