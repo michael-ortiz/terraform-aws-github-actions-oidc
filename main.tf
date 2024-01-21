@@ -40,7 +40,7 @@ data "aws_iam_policy_document" "policy_document" {
     }
 
     principals {
-      identifiers = [var.create_oidc_provider ? aws_iam_openid_connect_provider.provider[0].arn : ""]
+      identifiers = [var.create_oidc_provider ? aws_iam_openid_connect_provider.provider.*.arn : ""]
       type        = "Federated"
     }
   }
