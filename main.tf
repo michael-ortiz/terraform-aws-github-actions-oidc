@@ -1,10 +1,19 @@
+locals {
+  github_provider_url = "https://token.actions.githubusercontent.com"
+}
+
+data "aws_iam_openid_connect_provider" "provider" {
+  count = var.create_oidc_provider ? 0 : 1
+  url   = local.github_provider_url
+}
+
 resource "aws_iam_openid_connect_provider" "provider" {
   count = var.create_oidc_provider ? 1 : 0
   client_id_list = [
     "sts.amazonaws.com",
   ]
   thumbprint_list = var.github_thumbprints
-  url             = "https://token.actions.githubusercontent.com"
+  url             = local.github_provider_url
 }
 
 resource "aws_iam_role" "github_actions_role" {
@@ -40,7 +49,7 @@ data "aws_iam_policy_document" "policy_document" {
     }
 
     principals {
-      identifiers = [var.create_oidc_provider ? aws_iam_openid_connect_provider.provider.*.arn : ""]
+      identifiers = [var.create_oidc_provider ? aws_iam_openid_connect_provider.provider[0].arn : data.aws_iam_openid_connect_provider.provider[0].arn]
       type        = "Federated"
     }
   }
