@@ -1,6 +1,6 @@
 output "oidc_provider_arn" {
   description = "OIDC provider ARN"
-  value       = try(aws_iam_openid_connect_provider.provider[0].arn)
+  value       = try(aws_iam_openid_connect_provider.provider[0].arn, "")
 }
 
 output "oidc_role_arn" {
