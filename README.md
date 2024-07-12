@@ -1,6 +1,8 @@
 # terraform-aws-github-actions-oidc
 
-Usage:
+A simple module that creates a single OIDC Role to be assumed by GitHub Actions to have access to your AWS Account.
+
+## Usage:
 
 ```
 module "github-actions-oidc" {
